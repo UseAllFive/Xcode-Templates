@@ -16,12 +16,12 @@
 			<key>Beginning</key>
 			<string>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = ___RP___[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]___AR___;
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];</string>
+  self.window = ___RP___[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]___AR___;
+  //-- Override point for customization after application launch.
+  self.window.backgroundColor = [UIColor whiteColor];</string>
 			<key>End</key>
-			<string>    [self.window makeKeyAndVisible];
-    return YES;
+			<string>  [self.window makeKeyAndVisible];
+  return YES;
 }
 </string>
 			<key>Indent</key>

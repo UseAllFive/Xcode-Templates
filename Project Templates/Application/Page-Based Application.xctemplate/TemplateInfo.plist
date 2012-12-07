@@ -16,7 +16,7 @@
 			<string>- (void)awakeFromNib
 		{</string>
 			<key>End</key>
-			<string>    [super awakeFromNib];
+			<string>  [super awakeFromNib];
 		}
 		</string>
 			<key>Indent</key>
@@ -27,9 +27,9 @@
 			<key>Beginning</key>
 			<string>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.</string>
+  //-- Override point for customization after application launch.</string>
 			<key>End</key>
-			<string>    return YES;
+			<string>  return YES;
 }
 </string>
 			<key>Indent</key>
@@ -46,8 +46,8 @@
 		<key>___VARIABLE_classPrefix:identifier___DataViewController.m:implementation:viewWillAppear</key>
 		<string>- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    self.dataLabel.text = [self.dataObject description];
+  [super viewWillAppear:animated];
+  self.dataLabel.text = [self.dataObject description];
 }
 </string>
 		<key>___VARIABLE_classPrefix:identifier___DataViewController.m:private</key>
@@ -65,14 +65,14 @@
 		<string>- (___VARIABLE_classPrefix:identifier___DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;</string>
 		<key>___VARIABLE_classPrefix:identifier___ModelController.m:implementation:indexOfViewController</key>
 		<string>- (NSUInteger)indexOfViewController:(___VARIABLE_classPrefix:identifier___DataViewController *)viewController
-{   
-     // Return the index of the given data view controller.
-     // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-    return [self.pageData indexOfObject:viewController.dataObject];
+{
+  //-- Return the index of the given data view controller.
+  //-- For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
+  return [self.pageData indexOfObject:viewController.dataObject];
 }
 </string>
 		<key>___VARIABLE_classPrefix:identifier___ModelController.m:implementation:init:setup</key>
-		<string>// Create the data model.
+		<string>//-- Create the data model.
 NSDateFormatter *dateFormatter = ___RP___[[NSDateFormatter alloc] init]___AR___;
 _pageData = [[dateFormatter monthSymbols] copy];</string>
 		<key>___VARIABLE_classPrefix:identifier___ModelController.m:implementation:pageViewControllerDataSource</key>
@@ -80,52 +80,52 @@ _pageData = [[dateFormatter monthSymbols] copy];</string>
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:(___VARIABLE_classPrefix:identifier___DataViewController *)viewController];
-    if ((index == 0) || (index == NSNotFound)) {
-        return nil;
-    }
-    
-    index--;
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+  NSUInteger index = [self indexOfViewController:(___VARIABLE_classPrefix:identifier___DataViewController *)viewController];
+  if ((index == 0) || (index == NSNotFound)) {
+    return nil;
+  }
+
+  index--;
+  return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    NSUInteger index = [self indexOfViewController:(___VARIABLE_classPrefix:identifier___DataViewController *)viewController];
-    if (index == NSNotFound) {
-        return nil;
-    }
-    
-    index++;
-    if (index == [self.pageData count]) {
-        return nil;
-    }
-    return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+  NSUInteger index = [self indexOfViewController:(___VARIABLE_classPrefix:identifier___DataViewController *)viewController];
+  if (index == NSNotFound) {
+    return nil;
+  }
+
+  index++;
+  if (index == [self.pageData count]) {
+    return nil;
+  }
+  return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 </string>
 		<key>___VARIABLE_classPrefix:identifier___ModelController.m:implementation:viewControllerAtIndex</key>
 		<string>- (___VARIABLE_classPrefix:identifier___DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
-{   
-    // Return the data view controller for the given index.
-    if (([self.pageData count] == 0) || (index &gt;= [self.pageData count])) {
-        return nil;
-    }
-    
-    // Create a new view controller and pass suitable data.
-    ___VARIABLE_classPrefix:identifier___DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"___VARIABLE_classPrefix:identifier___DataViewController"];
-    dataViewController.dataObject = self.pageData[index];
-    return dataViewController;
+{
+  //-- Return the data view controller for the given index.
+  if (([self.pageData count] == 0) || (index &gt;= [self.pageData count])) {
+    return nil;
+  }
+
+  //-- Create a new view controller and pass suitable data.
+  ___VARIABLE_classPrefix:identifier___DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"___VARIABLE_classPrefix:identifier___DataViewController"];
+  dataViewController.dataObject = self.pageData[index];
+  return dataViewController;
 }
 </string>
 		<key>___VARIABLE_classPrefix:identifier___ModelController.m:private</key>
 		<string>/*
- A controller object that manages a simple model -- a collection of month names.
- 
- The controller serves as the data source for the page view controller; it therefore implements pageViewController:viewControllerBeforeViewController: and pageViewController:viewControllerAfterViewController:.
- It also implements a custom method, viewControllerAtIndex: which is useful in the implementation of the data source methods, and in the initial configuration of the application.
- 
- There is no need to actually create view controllers for each page in advance -- indeed doing so incurs unnecessary overhead. Given the data model, these methods create, configure, and return a new view controller on demand.
- */
+A controller object that manages a simple model -- a collection of month names.
+
+The controller serves as the data source for the page view controller; it therefore implements pageViewController:viewControllerBeforeViewController: and pageViewController:viewControllerAfterViewController:.
+It also implements a custom method, viewControllerAtIndex: which is useful in the implementation of the data source methods, and in the initial configuration of the application.
+
+There is no need to actually create view controllers for each page in advance -- indeed doing so incurs unnecessary overhead. Given the data model, these methods create, configure, and return a new view controller on demand.
+*/
 
 @interface ___VARIABLE_classPrefix:identifier___ModelController()
 @property (readonly, strong, nonatomic) NSArray *pageData;
@@ -142,12 +142,12 @@ _pageData = [[dateFormatter monthSymbols] copy];</string>
 			<key>Beginning</key>
 			<string>- (___VARIABLE_classPrefix:identifier___ModelController *)modelController
 {
-     // Return the model controller object, creating it if necessary.
-     // In more complex implementations, the model controller may be passed to the view controller.
-    if (!_modelController) {
-        _modelController = [[___VARIABLE_classPrefix:identifier___ModelController alloc] init];
-    }
-    return _modelController;
+  //-- Return the model controller object, creating it if necessary.
+  //-- In more complex implementations, the model controller may be passed to the view controller.
+  if (!_modelController) {
+    _modelController = [[___VARIABLE_classPrefix:identifier___ModelController alloc] init];
+  }
+  return _modelController;
 }
 
 #pragma mark - UIPageViewController delegate methods
@@ -155,9 +155,9 @@ _pageData = [[dateFormatter monthSymbols] copy];</string>
 /*
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
 {
-    
+
 }
- */
+*/
 
 - (UIPageViewControllerSpineLocation)pageViewController:(UIPageViewController *)pageViewController spineLocationForInterfaceOrientation:(UIInterfaceOrientation)orientation
 {</string>
@@ -170,7 +170,7 @@ _pageData = [[dateFormatter monthSymbols] copy];</string>
 		<key>___VARIABLE_classPrefix:identifier___RootViewController.m:implementation:viewDidLoad:setup</key>
 		<dict>
 			<key>Beginning</key>
-			<string>// Configure the page view controller and add it as a child view controller.
+			<string>//-- Configure the page view controller and add it as a child view controller.
 self.pageViewController = ___RP___[[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil]___AR___;
 self.pageViewController.delegate = self;
 
@@ -183,14 +183,14 @@ self.pageViewController.dataSource = self.modelController;
 [self addChildViewController:self.pageViewController];
 [self.view addSubview:self.pageViewController.view];
 
-// Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
+//-- Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
 CGRect pageViewRect = self.view.bounds;</string>
 			<key>End</key>
 			<string>self.pageViewController.view.frame = pageViewRect;
 
 [self.pageViewController didMoveToParentViewController:self];
 
-// Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
+//-- Add the page view controller's gesture recognizers to the book view controller's view so that the gestures are started more easily.
 self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;</string>
 		</dict>
 		<key>___VARIABLE_classPrefix:identifier___RootViewController.m:private</key>
@@ -273,36 +273,35 @@ self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;</stri
 &lt;string&gt;MainStoryboard_iPad&lt;/string&gt;</string>
 							<key>___VARIABLE_classPrefix:identifier___RootViewController.m:implementation:UIPageViewController:content</key>
 							<string>if (UIInterfaceOrientationIsPortrait(orientation) || ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)) {
-    // In portrait orientation or on iPhone: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
-    
-    UIViewController *currentViewController = self.pageViewController.viewControllers[0];
-    NSArray *viewControllers = @[currentViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
-    
-    self.pageViewController.doubleSided = NO;
-    return UIPageViewControllerSpineLocationMin;
+  //-- In portrait orientation or on iPhone: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
+
+  UIViewController *currentViewController = self.pageViewController.viewControllers[0];
+  NSArray *viewControllers = @[currentViewController];
+  [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+
+  self.pageViewController.doubleSided = NO;
+  return UIPageViewControllerSpineLocationMin;
 }
 
-// In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
+//-- In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
 ___VARIABLE_classPrefix:identifier___DataViewController *currentViewController = self.pageViewController.viewControllers[0];
 NSArray *viewControllers = nil;
 
 NSUInteger indexOfCurrentViewController = [self.modelController indexOfViewController:currentViewController];
 if (indexOfCurrentViewController == 0 || indexOfCurrentViewController % 2 == 0) {
-    UIViewController *nextViewController = [self.modelController pageViewController:self.pageViewController viewControllerAfterViewController:currentViewController];
-    viewControllers = @[currentViewController, nextViewController];
+  UIViewController *nextViewController = [self.modelController pageViewController:self.pageViewController viewControllerAfterViewController:currentViewController];
+  viewControllers = @[currentViewController, nextViewController];
 } else {
-    UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
-    viewControllers = @[previousViewController, currentViewController];
+  UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
+  viewControllers = @[previousViewController, currentViewController];
 }
 [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
-
 
 return UIPageViewControllerSpineLocationMid;
 </string>
 							<key>___VARIABLE_classPrefix:identifier___RootViewController.m:implementation:viewDidLoad:setup:inset</key>
 							<string>if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-    pageViewRect = CGRectInset(pageViewRect, 40.0, 40.0);
+  pageViewRect = CGRectInset(pageViewRect, 40.0, 40.0);
 }</string>
 							<key>en.lproj/MainStoryboard_iPad.storyboard</key>
 							<dict>
@@ -333,29 +332,28 @@ return UIPageViewControllerSpineLocationMid;
 &lt;string&gt;MainStoryboard&lt;/string&gt;</string>
 							<key>___VARIABLE_classPrefix:identifier___RootViewController.m:implementation:UIPageViewController:content</key>
 							<string>if (UIInterfaceOrientationIsPortrait(orientation)) {
-    // In portrait orientation: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
-    UIViewController *currentViewController = self.pageViewController.viewControllers[0];
-    NSArray *viewControllers = @[currentViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
-    
-    self.pageViewController.doubleSided = NO;
-    return UIPageViewControllerSpineLocationMin;
+  //-- In portrait orientation: Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
+  UIViewController *currentViewController = self.pageViewController.viewControllers[0];
+  NSArray *viewControllers = @[currentViewController];
+  [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
+
+  self.pageViewController.doubleSided = NO;
+  return UIPageViewControllerSpineLocationMin;
 }
 
-// In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
+//-- In landscape orientation: Set set the spine location to "mid" and the page view controller's view controllers array to contain two view controllers. If the current page is even, set it to contain the current and next view controllers; if it is odd, set the array to contain the previous and current view controllers.
 ___VARIABLE_classPrefix:identifier___DataViewController *currentViewController = self.pageViewController.viewControllers[0];
 NSArray *viewControllers = nil;
 
 NSUInteger indexOfCurrentViewController = [self.modelController indexOfViewController:currentViewController];
 if (indexOfCurrentViewController == 0 || indexOfCurrentViewController % 2 == 0) {
-    UIViewController *nextViewController = [self.modelController pageViewController:self.pageViewController viewControllerAfterViewController:currentViewController];
-    viewControllers = @[currentViewController, nextViewController];
+  UIViewController *nextViewController = [self.modelController pageViewController:self.pageViewController viewControllerAfterViewController:currentViewController];
+  viewControllers = @[currentViewController, nextViewController];
 } else {
-    UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
-    viewControllers = @[previousViewController, currentViewController];
+  UIViewController *previousViewController = [self.modelController pageViewController:self.pageViewController viewControllerBeforeViewController:currentViewController];
+  viewControllers = @[previousViewController, currentViewController];
 }
 [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
-
 
 return UIPageViewControllerSpineLocationMid;
 </string>
@@ -383,7 +381,7 @@ return UIPageViewControllerSpineLocationMid;
 							<string>&lt;key&gt;UIMainStoryboardFile&lt;/key&gt;
 &lt;string&gt;MainStoryboard&lt;/string&gt;</string>
 							<key>___VARIABLE_classPrefix:identifier___RootViewController.m:implementation:UIPageViewController:content</key>
-							<string>// Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
+							<string>//-- Set the spine position to "min" and the page view controller's view controllers array to contain just one view controller. Setting the spine position to 'UIPageViewControllerSpineLocationMid' in landscape orientation sets the doubleSided property to YES, so set it to NO here.
 UIViewController *currentViewController = self.pageViewController.viewControllers[0];
 NSArray *viewControllers = @[currentViewController];
 [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];

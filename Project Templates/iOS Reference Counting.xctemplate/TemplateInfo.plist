@@ -38,7 +38,7 @@
 								<string>- (void)dealloc
 {</string>
 								<key>End</key>
-								<string>    [super dealloc];
+								<string>  [super dealloc];
 }
 </string>
 								<key>Indent</key>

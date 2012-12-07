@@ -37,11 +37,11 @@
 								<key>Beginning</key>
 								<string>- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {</string>
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {</string>
 								<key>End</key>
-								<string>    }
-    return self;
+								<string>  }
+  return self;
 }
 							</string>
 								<key>Indent</key>
@@ -52,11 +52,11 @@
 								<key>Beginning</key>
 								<string>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = ___RP___[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]___AR___;
-    // Override point for customization after application launch.</string>
+  self.window = ___RP___[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]___AR___;
+  //-- Override point for customization after application launch.</string>
 								<key>End</key>
-								<string>    [self.window makeKeyAndVisible];
-    return YES;
+								<string>  [self.window makeKeyAndVisible];
+  return YES;
 }
 </string>
 								<key>Indent</key>
@@ -80,7 +80,7 @@
 								<string>- (void)awakeFromNib
 {</string>
 								<key>End</key>
-								<string>    [super awakeFromNib];
+								<string>  [super awakeFromNib];
 }
 </string>
 								<key>Indent</key>
@@ -91,9 +91,9 @@
 								<key>Beginning</key>
 								<string>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.</string>
+  //-- Override point for customization after application launch.</string>
 								<key>End</key>
-								<string>    return YES;
+								<string>  return YES;
 }
 							</string>
 								<key>Indent</key>

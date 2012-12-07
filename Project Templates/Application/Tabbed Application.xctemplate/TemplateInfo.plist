@@ -100,14 +100,14 @@ self.tabBarController.viewControllers = @[viewController1, viewController2];
 self.window.rootViewController = self.tabBarController;</string>
 							<key>___VARIABLE_classPrefix:identifier___AppDelegate.m:tabBarMethods</key>
 							<string>/*
-// Optional UITabBarControllerDelegate method.
+//-- Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
 }
 */
 
 /*
-// Optional UITabBarControllerDelegate method.
+//-- Optional UITabBarControllerDelegate method.
 - (void)tabBarController:(UITabBarController *)tabBarController didEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed
 {
 }
@@ -162,11 +162,11 @@ self.tabBarItem.image = [UIImage imageNamed:@"second"];</string>
 							<key>___VARIABLE_classPrefix:identifier___AppDelegate.m:applicationdidFinishLaunchingWithOptions:setup</key>
 							<string>UIViewController *viewController1, *viewController2;
 if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-    viewController1 = ___RP___[[___VARIABLE_classPrefix:identifier___FirstViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___FirstViewController_iPhone" bundle:nil]___AR___;
-    viewController2 = ___RP___[[___VARIABLE_classPrefix:identifier___SecondViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___SecondViewController_iPhone" bundle:nil]___AR___;
+  viewController1 = ___RP___[[___VARIABLE_classPrefix:identifier___FirstViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___FirstViewController_iPhone" bundle:nil]___AR___;
+  viewController2 = ___RP___[[___VARIABLE_classPrefix:identifier___SecondViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___SecondViewController_iPhone" bundle:nil]___AR___;
 } else {
-    viewController1 = ___RP___[[___VARIABLE_classPrefix:identifier___FirstViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___FirstViewController_iPad" bundle:nil]___AR___;
-    viewController2 = ___RP___[[___VARIABLE_classPrefix:identifier___SecondViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___SecondViewController_iPad" bundle:nil]___AR___;
+  viewController1 = ___RP___[[___VARIABLE_classPrefix:identifier___FirstViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___FirstViewController_iPad" bundle:nil]___AR___;
+  viewController2 = ___RP___[[___VARIABLE_classPrefix:identifier___SecondViewController alloc] initWithNibName:@"___VARIABLE_classPrefix:identifier___SecondViewController_iPad" bundle:nil]___AR___;
 }
 self.tabBarController = ___RP___[[UITabBarController alloc] init]___AR___;
 self.tabBarController.viewControllers = @[viewController1, viewController2];

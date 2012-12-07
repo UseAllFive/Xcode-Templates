@@ -10,29 +10,45 @@
 
 @interface ___FILEBASENAMEASIDENTIFIER___ ()
 
+- (void)commonInit;
+
 @end
 
 @implementation ___FILEBASENAMEASIDENTIFIER___
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    [self commonInit];
+  }
+  return self;
+}
+
+- (id)init
+{
+  self = [super init];
+  if (self) {
+    [self commonInit];
+  }
+  return self;
+}
+
+- (void)commonInit
+{
+  //-- Custom initialization.
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+  [super viewDidLoad];
+  //-- Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  //-- Dispose of any resources that can be recreated.
 }
 
 @end
